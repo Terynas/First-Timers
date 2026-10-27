@@ -1,0 +1,32 @@
+---
+description: Security and trust gates for AI-written WoW addon Lua/TOC
+globs: "**/*.{lua,toc,xml}"
+alwaysApply: false
+---
+
+# WoW addon AI — security
+
+When writing or editing addon code, follow `06-notes/addon-dev/security-and-trust.md`.
+
+## Must
+
+- Never `loadstring` / `RunScript` on chat, addon messages, or untrusted SavedVariables
+- Hook Blizzard with `hooksecurefunc` / `HookScript` only — do not replace `_G` Blizzard functions
+- Check `InCombatLockdown()` before mutating secure/protected frames; queue for `PLAYER_REGEN_ENABLED`
+- Never store secret values (or functions/userdata) in SavedVariables
+- Validate and version addon-message payloads; rate-limit chat sends; require opt-in for automation
+- Prefix globals and frame names; no credential phishing UI
+- Verify APIs against the target client docs — do not invent functions
+
+## Must not
+
+- Claim secure/combat bypasses or fake hardware events
+- Auto-spam chat from combat or untrusted triggers
+- Copy Classic Era CLEU/secret-free patterns onto Forever or Midnight without migration notes
+---
+
+# Related
+
+- `06-notes/addon-dev/ai-assisted-best-practices.md`
+- `06-notes/addon-dev/debugging-and-taint.md`
+- `06-notes/forever-rules.md`

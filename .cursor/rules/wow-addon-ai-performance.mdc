@@ -1,0 +1,30 @@
+---
+description: Resource and FPS gates for AI-written WoW addon code
+globs: "**/*.{lua,toc,xml}"
+alwaysApply: false
+---
+
+# WoW addon AI — performance
+
+When writing or editing addon code, follow `06-notes/addon-dev/performance-and-resources.md`.
+
+## Must
+
+- Prefer `RegisterEvent` / `RegisterUnitEvent` and `C_Timer` over `OnUpdate`
+- Any `OnUpdate` must be throttled and cleared when the UI is hidden or the feature is off
+- Create frames once (or via a pool); never `CreateFrame` inside frequent refresh loops
+- Use `local` aliases for APIs in hot paths; `wipe` and reuse tables
+- Cancel timers / use generation counters so stale callbacks do nothing
+- Bound SavedVariables growth; do not persist rebuildable caches by default
+- Respect addon-message size and rate limits — no per-frame heartbeats
+
+## Must not
+
+- Register the broadest events and filter everything in Lua when `RegisterUnitEvent` exists
+- Leave debug `print` / dump loops on hot paths in shipped code
+---
+
+# Related
+
+- `06-notes/addon-dev/ai-assisted-best-practices.md`
+- `06-notes/addon-dev/api-events-frames.md`

@@ -22,6 +22,7 @@
 - [Quick start](#quick-start)
 - [Learning path](#learning-path)
 - [What's inside](#whats-inside)
+- [Using with AI coding tools](#using-with-ai-coding-tools)
 - [External sources](#external-sources)
 - [Which source to trust](#which-source-to-trust)
 - [Repository layout](#repository-layout)
@@ -60,16 +61,40 @@ Run `bash sync.sh` again whenever you want the latest docs (`bash sync.sh docs` 
 3. **What's different on modern clients.** Read the [Midnight 12.0.0 API changes](01-guides/wiki/midnight-12.0.0-api-changes.md) and [`06-notes/addon-dev/midnight-12.md`](06-notes/addon-dev/midnight-12.md). Forever inherits most of these changes.
 4. **Forever specifics.** Read [`06-notes/forever-rules.md`](06-notes/forever-rules.md), [`06-notes/forever-quirks.md`](06-notes/forever-quirks.md) and the [Forever 1.60.1 API changes](01-guides/wiki/forever-1.60.1-api-changes.md), then the [Forever developer series](#external-sources) (downloaded into `01-guides/forever/` by `sync.sh`).
 5. **Going further.** Topic notes in [`06-notes/addon-dev/`](06-notes/addon-dev/) cover secure templates and combat lockdown, debugging, Ace3, and packaging for CurseForge. Bigger examples are in [`07-starter/more-examples/`](07-starter/more-examples/).
+6. **Building with AI.** Start at [`AGENTS.md`](AGENTS.md) (works with Claude, Copilot, Cursor, and other agents), then read [`06-notes/addon-dev/ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md) and the [security](06-notes/addon-dev/security-and-trust.md) / [performance](06-notes/addon-dev/performance-and-resources.md) checklists. See [Using with AI coding tools](#using-with-ai-coding-tools).
 
 ## What's inside
 
 | Folder | What you'll find |
 |--------|------------------|
 | [`01-guides/wiki/`](01-guides/wiki/) | 17 Warcraft Wiki pages as Markdown. Numbered files are tutorials in reading order; `ref-*` files list every API function, event, widget method, script handler and CVar. |
-| [`06-notes/`](06-notes/) | Notes written while building and shipping real addons: Forever rules, machine-verified Forever quirks, and ten topic guides. |
+| [`06-notes/`](06-notes/) | Notes written while building and shipping real addons: Forever rules, machine-verified Forever quirks, topic guides, plus AI-assisted security and performance best practices. |
+| [`AGENTS.md`](AGENTS.md) | Tool-agnostic instructions for any coding agent (Claude, Copilot, Cursor, Codex, Gemini, …). |
 | [`07-starter/HelloAzeroth/`](07-starter/HelloAzeroth/) | A minimal addon for both clients: event handling, a slash command, saved settings and Forever detection. |
 | [`07-starter/more-examples/`](07-starter/more-examples/) | Ace3 addon, options panel, addon-to-addon messages, boss encounter handling, multi-version TOCs. Their TOCs say `120005`; update `## Interface:` before loading them. |
 | [`sync.sh`](sync.sh) | Downloads and updates everything in [External sources](#external-sources). |
+
+## Using with AI coding tools
+
+[`AGENTS.md`](AGENTS.md) is the **single source of truth** for agents. Tool-specific files only point at it (and at the deep-dive notes) so Claude, Copilot, Cursor, and others all get the same security and performance gates.
+
+| Tool | What to open / what loads automatically |
+|------|----------------------------------------|
+| **Any agent** | Tell it: “Follow `AGENTS.md`.” Or `@AGENTS.md` / attach that file in chat. |
+| **Claude Code** | [`CLAUDE.md`](CLAUDE.md) (auto-read) → `AGENTS.md` |
+| **GitHub Copilot** | [`.github/copilot-instructions.md`](.github/copilot-instructions.md) (repo instructions) |
+| **Cursor** | [`AGENTS.md`](AGENTS.md) + [`.cursor/rules/`](.cursor/rules/) (Lua/TOC gates) |
+| **Gemini CLI** | [`GEMINI.md`](GEMINI.md) → `AGENTS.md` |
+| **Windsurf** | [`.windsurfrules`](.windsurfrules) → `AGENTS.md` |
+| **Codex / other** | Prefer `AGENTS.md`; attach the three `06-notes/addon-dev/ai-*.md` / checklist files for deep work |
+
+Human-readable playbooks (same content the agents should follow):
+
+- [`06-notes/addon-dev/ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md)
+- [`06-notes/addon-dev/security-and-trust.md`](06-notes/addon-dev/security-and-trust.md)
+- [`06-notes/addon-dev/performance-and-resources.md`](06-notes/addon-dev/performance-and-resources.md)
+
+Optional broader skill (retail-focused, separate repo): [wow-addon-dev](https://github.com/TheMizeGuy/wow-addon-dev) for Claude/Codex/Gemini skill folders — still use this repo’s Forever notes when targeting Forever.
 
 ## External sources
 
@@ -115,7 +140,13 @@ First-Timers/
 ├── 04-interface-resources/    Globals, events, frames, atlases per client (sync.sh)
 ├── 05-libraries/              Ace3, packager (sync.sh)
 ├── 06-notes/                  Notes from shipping real addons (in repo)
+│   └── addon-dev/             Topic guides + AI security/performance playbooks
 ├── 07-starter/                HelloAzeroth + more examples (in repo)
+├── AGENTS.md                  Canonical instructions for every AI coding tool
+├── CLAUDE.md / GEMINI.md      Thin pointers for Claude Code / Gemini CLI
+├── .github/copilot-instructions.md
+├── .cursor/rules/             Cursor-specific mirrors of the same gates
+├── .windsurfrules             Windsurf pointer → AGENTS.md
 └── sync.sh                    Download / update script
 ```
 
@@ -127,6 +158,7 @@ First-Timers/
 - **Set your event handler before registering events**, and read saved settings in `ADDON_LOADED`, not at file load.
 - **Don't modify protected frames in combat.** Check `InCombatLockdown()` first.
 - **Start small.** One file, one event, one slash command. HelloAzeroth is all three.
+- **If an AI wrote the code**, point it at [`AGENTS.md`](AGENTS.md), then verify every API against Forever/Midnight docs and run the [security](06-notes/addon-dev/security-and-trust.md) and [performance](06-notes/addon-dev/performance-and-resources.md) checklists before you trust it in-game.
 
 ## Credits and licenses
 

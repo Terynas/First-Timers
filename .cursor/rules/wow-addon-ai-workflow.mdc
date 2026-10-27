@@ -1,0 +1,29 @@
+---
+description: AI workflow for Forever/Midnight addon work — verify APIs, smallest change, test honestly
+alwaysApply: true
+---
+
+# WoW addon AI — workflow
+
+Canonical multi-tool contract: repository root `AGENTS.md` (also used by Claude, Copilot, Gemini, Windsurf). Read `06-notes/addon-dev/ai-assisted-best-practices.md` before substantial addon authoring.
+
+## Client truth
+
+- **Forever** = Interface `16001`, Mainline-family (Camelot), secrets + modern `C_*` — not Classic Era
+- **Midnight** = Interface `120105` / `120107` — secrets, no addon CLEU
+- When sources disagree: client generated docs and in-game `/dump` win (see README "Which source to trust")
+- After TOC edits: full client restart. After Lua-only: `/reload`
+
+## Default engineering
+
+- Smallest correct change; avoid Ace3 unless config/profile complexity needs it
+- Init SavedVariables on `ADDON_LOADED` with addon-name check
+- Set `OnEvent` before `RegisterEvent`
+- Security + performance checklists in `06-notes/addon-dev/security-and-trust.md` and `performance-and-resources.md` are merge gates
+- State what was not tested in-game; never claim "should work" without evidence
+
+## Learning library paths
+
+- Starter: `07-starter/HelloAzeroth/`
+- Forever quirks: `06-notes/forever-quirks.md`
+- Wiki tutorials: `01-guides/wiki/`
