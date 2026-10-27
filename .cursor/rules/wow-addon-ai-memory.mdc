@@ -1,0 +1,36 @@
+---
+description: Durable agent memory for WoW addon work — Hindsight first, Obsidian optional; save tokens
+alwaysApply: true
+---
+
+# WoW addon AI — memory (token discipline)
+
+Canonical guide: `06-notes/addon-dev/agent-memory-setup.md` (includes **Linux / macOS / Windows** Hindsight install).
+
+## Prefer Hindsight; Obsidian is human canon
+
+- **Hindsight** = primary agent memory (search / read / reflect / ingest / capture_initiative).
+- **Obsidian** = optional short human notes. Only `@`-mention specific notes; never “read the whole vault.”
+- Each **git repo** has its own Hindsight bank — do not treat another repo’s memory as truth for this one.
+
+## Before non-trivial work
+
+1. `hindsight_search_knowledge_pages` (or list + read) for the topic — bugs, “why”, features, tests, commits.
+2. Read `AGENTS.md` + Forever quirks/rules when the client is Forever/Midnight — do not re-derive from scratch.
+3. On plan approval: `hindsight_capture_initiative` before coding; recapture with `relates_to_page_id` if scope changes.
+
+## After Forever API / docs refresh
+
+- If `ingest_required=yes`: `hindsight_ingest_document` with a **short** change summary only.
+- Never ingest or paste full `WowForeverAPI.lua` / FrameXML into memory or chat.
+
+## Corrections
+
+- When recalled memory is wrong: ingest `Correction: <topic>` with evidence (path, `/dump`, wiki).
+
+## Token anti-patterns (forbidden)
+
+- Dumping entire API trees or Ace3 into the prompt
+- Re-explaining Forever ≠ Classic every turn when quirks/AGENTS/Hindsight already cover it
+- Open-ended “review the whole addon” without luacheck + security/perf checklists
+- Storing secrets, tokens, or local absolute home paths in memory notes

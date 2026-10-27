@@ -4,6 +4,7 @@ Most new addons are drafted with AI. That is fine — **if** the human (and the 
 
 This note is the playbook. Pair it with:
 
+- [`agent-memory-setup.md`](agent-memory-setup.md) — **Hindsight + optional Obsidian** so agents stop re-burning tokens on Forever/API context
 - [`luacheck-and-code-quality.md`](luacheck-and-code-quality.md) — **mandatory** static check before finish / publish / r/wowaddons
 - [`security-and-trust.md`](security-and-trust.md) — taint, secrets, chat, SavedVariables, no `loadstring` on network data
 - [`performance-and-resources.md`](performance-and-resources.md) — events vs polling, pools, timers
@@ -25,6 +26,12 @@ This note is the playbook. Pair it with:
 8. **Scope creep** — Ace3 + five libraries for a slash command and one event.
 
 ## Ground rules for agents (and humans reviewing them)
+
+### Remember before you re-teach
+
+- Search **Hindsight** (or read [`agent-memory-setup.md`](agent-memory-setup.md)) before re-explaining Forever ≠ Classic, Interface numbers, or last week’s design choices.
+- Optional **Obsidian**: short human notes only; `@`-mention one note — never “scan the whole vault.”
+- Capture an **initiative** when a feature plan is approved; ingest API-refresh **summaries**, not full dumps.
 
 ### Verify before you write
 

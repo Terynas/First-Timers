@@ -6,10 +6,11 @@ Priority reading:
 
 1. `AGENTS.md` (must / must-not)
 2. `06-notes/addon-dev/ai-assisted-best-practices.md`
-3. `06-notes/addon-dev/luacheck-and-code-quality.md` (run luacheck before done / publish)
-4. `06-notes/addon-dev/security-and-trust.md`
-5. `06-notes/addon-dev/performance-and-resources.md`
-6. `06-notes/forever-rules.md` when the target is WoW Forever
+3. `06-notes/addon-dev/agent-memory-setup.md` (durable memory — do not re-teach Forever every completion)
+4. `06-notes/addon-dev/luacheck-and-code-quality.md` (run luacheck before done / publish)
+5. `06-notes/addon-dev/security-and-trust.md`
+6. `06-notes/addon-dev/performance-and-resources.md`
+7. `06-notes/forever-rules.md` when the target is WoW Forever
 
 Hard constraints for completions:
 

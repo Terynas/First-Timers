@@ -7,7 +7,9 @@ Tool-agnostic contract for coding agents working in this repository (Claude Code
 | Doc | Role |
 |-----|------|
 | [`06-notes/addon-dev/ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md) | Workflow, common AI mistakes, definition of done |
+| [`06-notes/addon-dev/agent-memory-setup.md`](06-notes/addon-dev/agent-memory-setup.md) | **Hindsight + optional Obsidian** — stop re-burning tokens |
 | [`06-notes/addon-dev/luacheck-and-code-quality.md`](06-notes/addon-dev/luacheck-and-code-quality.md) | **Mandatory** luacheck before finish / publish |
+| [`06-notes/addon-dev/lua-learning-resources.md`](06-notes/addon-dev/lua-learning-resources.md) | Lua 5.1 books / manuals (PiL, reference manual, …) |
 | [`06-notes/addon-dev/security-and-trust.md`](06-notes/addon-dev/security-and-trust.md) | Security merge gate |
 | [`06-notes/addon-dev/performance-and-resources.md`](06-notes/addon-dev/performance-and-resources.md) | Performance / FPS merge gate |
 | [`06-notes/forever-rules.md`](06-notes/forever-rules.md) | Forever client hard rules |
@@ -26,6 +28,7 @@ How each tool loads these: see [README — Using with AI coding tools](README.md
 ## Must
 
 - Verify every API against Forever/Midnight docs — **do not invent** symbols.
+- **Use durable memory** so sessions do not re-teach Forever/Midnight: prefer **Hindsight** search/ingest/initiatives; optional **Obsidian** for short human canon. See [`agent-memory-setup.md`](06-notes/addon-dev/agent-memory-setup.md) and [`.cursor/rules/wow-addon-ai-memory.mdc`](.cursor/rules/wow-addon-ai-memory.mdc). Never paste full API dumps into chat or memory.
 - **Run luacheck** on every touched addon path before finishing any Lua/TOC task and **before packaging, publishing, or posting** (CurseForge / Wago / WoWInterface / GitHub / r/wowaddons). Prefer MCP `wow_luacheck`; else CLI + [`.luacheckrc`](.luacheckrc). **luacheck is a separate install** (not in this repo) — see [`luacheck-and-code-quality.md`](06-notes/addon-dev/luacheck-and-code-quality.md) § Install and [`.cursor/skills/wow-luacheck/SKILL.md`](.cursor/skills/wow-luacheck/SKILL.md). Do not claim done if the check was skipped.
 - No `loadstring` / `RunScript` on chat, addon messages, or untrusted SavedVariables.
 - Hook Blizzard with `hooksecurefunc` / `HookScript` only — do not replace `_G` Blizzard functions.
@@ -50,5 +53,6 @@ How each tool loads these: see [README — Using with AI coding tools](README.md
 ```text
 Follow AGENTS.md in this repo.
 Client: WoW Forever Interface 16001 (or Midnight 120105/120107 — say which).
+Search Hindsight (or read agent-memory-setup.md) before re-deriving Forever quirks.
 Verify APIs against synced docs; run luacheck before done; security + performance checklists are merge gates.
 ```

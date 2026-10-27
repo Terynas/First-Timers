@@ -5,6 +5,7 @@ Follow **[`AGENTS.md`](AGENTS.md)** for all addon work in this repo.
 Before non-trivial Lua/TOC changes, also open:
 
 - `06-notes/addon-dev/ai-assisted-best-practices.md`
+- `06-notes/addon-dev/agent-memory-setup.md` (Hindsight / Obsidian — search memory before re-deriving Forever)
 - `06-notes/addon-dev/luacheck-and-code-quality.md` (run luacheck before done / publish)
 - `.cursor/skills/wow-luacheck/SKILL.md`
 - `06-notes/addon-dev/security-and-trust.md`

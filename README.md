@@ -24,6 +24,7 @@
 - [What's inside](#whats-inside)
 - [Using with AI coding tools](#using-with-ai-coding-tools)
 - [External sources](#external-sources)
+- [Learning Lua](#learning-lua)
 - [Which source to trust](#which-source-to-trust)
 - [Repository layout](#repository-layout)
 - [Tips for first timers](#tips-for-first-timers)
@@ -56,19 +57,20 @@ Run `bash sync.sh` again whenever you want the latest docs (`bash sync.sh docs` 
 
 ## Learning path
 
-1. **Your first addon.** Read [`01-guides/wiki/01-getting-started.md`](01-guides/wiki/01-getting-started.md) (Hello World in 15 minutes), then open `07-starter/HelloAzeroth/` and read its two files line by line.
-2. **The building blocks.** Work through the numbered wiki tutorials in [`01-guides/wiki/`](01-guides/wiki/): TOC files, the loading process, events, saved settings, slash commands, localization, taint, XML.
-3. **What's different on modern clients.** Read the [Midnight 12.0.0 API changes](01-guides/wiki/midnight-12.0.0-api-changes.md) and [`06-notes/addon-dev/midnight-12.md`](06-notes/addon-dev/midnight-12.md). Forever inherits most of these changes.
-4. **Forever specifics.** Read [`06-notes/forever-rules.md`](06-notes/forever-rules.md), [`06-notes/forever-quirks.md`](06-notes/forever-quirks.md) and the [Forever 1.60.1 API changes](01-guides/wiki/forever-1.60.1-api-changes.md), then the [Forever developer series](#external-sources) (downloaded into `01-guides/forever/` by `sync.sh`).
-5. **Going further.** Topic notes in [`06-notes/addon-dev/`](06-notes/addon-dev/) cover secure templates and combat lockdown, debugging, Ace3, and packaging for CurseForge. Bigger examples are in [`07-starter/more-examples/`](07-starter/more-examples/).
-6. **Building with AI.** Start at [`AGENTS.md`](AGENTS.md) (works with Claude, Copilot, Cursor, and other agents), then read [`06-notes/addon-dev/ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md), the mandatory [luacheck](06-notes/addon-dev/luacheck-and-code-quality.md) gate, and the [security](06-notes/addon-dev/security-and-trust.md) / [performance](06-notes/addon-dev/performance-and-resources.md) checklists. See [Using with AI coding tools](#using-with-ai-coding-tools).
+1. **Lua (language).** Addons are **Lua 5.1**. You can start HelloAzeroth with almost no Lua — when you want books and manuals, see [Learning Lua](#learning-lua) and [`06-notes/addon-dev/lua-learning-resources.md`](06-notes/addon-dev/lua-learning-resources.md).
+2. **Your first addon.** Read [`01-guides/wiki/01-getting-started.md`](01-guides/wiki/01-getting-started.md) (Hello World in 15 minutes), then open `07-starter/HelloAzeroth/` and read its two files line by line.
+3. **The building blocks.** Work through the numbered wiki tutorials in [`01-guides/wiki/`](01-guides/wiki/): TOC files, the loading process, events, saved settings, slash commands, localization, taint, XML.
+4. **What's different on modern clients.** Read the [Midnight 12.0.0 API changes](01-guides/wiki/midnight-12.0.0-api-changes.md) and [`06-notes/addon-dev/midnight-12.md`](06-notes/addon-dev/midnight-12.md). Forever inherits most of these changes.
+5. **Forever specifics.** Read [`06-notes/forever-rules.md`](06-notes/forever-rules.md), [`06-notes/forever-quirks.md`](06-notes/forever-quirks.md) and the [Forever 1.60.1 API changes](01-guides/wiki/forever-1.60.1-api-changes.md), then the [Forever developer series](#external-sources) (downloaded into `01-guides/forever/` by `sync.sh`).
+6. **Going further.** Topic notes in [`06-notes/addon-dev/`](06-notes/addon-dev/) cover secure templates and combat lockdown, debugging, Ace3, and packaging for CurseForge. Bigger examples are in [`07-starter/more-examples/`](07-starter/more-examples/).
+7. **Building with AI.** Start at [`AGENTS.md`](AGENTS.md) (works with Claude, Copilot, Cursor, and other agents), then set up [agent memory](06-notes/addon-dev/agent-memory-setup.md) (**Hindsight** + optional Obsidian) so sessions do not re-teach Forever every time. Read [`ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md), the mandatory [luacheck](06-notes/addon-dev/luacheck-and-code-quality.md) gate, and the [security](06-notes/addon-dev/security-and-trust.md) / [performance](06-notes/addon-dev/performance-and-resources.md) checklists. See [Using with AI coding tools](#using-with-ai-coding-tools).
 
 ## What's inside
 
 | Folder | What you'll find |
 |--------|------------------|
 | [`01-guides/wiki/`](01-guides/wiki/) | 17 Warcraft Wiki pages as Markdown. Numbered files are tutorials in reading order; `ref-*` files list every API function, event, widget method, script handler and CVar. |
-| [`06-notes/`](06-notes/) | Notes written while building and shipping real addons: Forever rules, machine-verified Forever quirks, topic guides, plus AI-assisted security and performance best practices. |
+| [`06-notes/`](06-notes/) | Notes written while building and shipping real addons: Forever rules, quirks, [Lua learning](06-notes/addon-dev/lua-learning-resources.md), [agent memory (Hindsight/Obsidian)](06-notes/addon-dev/agent-memory-setup.md), topic guides, AI security/performance gates. |
 | [`AGENTS.md`](AGENTS.md) | Tool-agnostic instructions for any coding agent (Claude, Copilot, Cursor, Codex, Gemini, …). |
 | [`07-starter/HelloAzeroth/`](07-starter/HelloAzeroth/) | A minimal addon for both clients: event handling, a slash command, saved settings and Forever detection. |
 | [`07-starter/more-examples/`](07-starter/more-examples/) | Ace3 addon, options panel, addon-to-addon messages, boss encounter handling, multi-version TOCs. Their TOCs say `120005`; update `## Interface:` before loading them. |
@@ -91,6 +93,7 @@ Run `bash sync.sh` again whenever you want the latest docs (`bash sync.sh docs` 
 Human-readable playbooks (same content the agents should follow):
 
 - [`06-notes/addon-dev/ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md)
+- [`06-notes/addon-dev/agent-memory-setup.md`](06-notes/addon-dev/agent-memory-setup.md) — **Hindsight (primary) + optional Obsidian**; token discipline
 - [`06-notes/addon-dev/luacheck-and-code-quality.md`](06-notes/addon-dev/luacheck-and-code-quality.md) — run before finish / publish / r/wowaddons (**install luacheck separately**; not bundled here)
 - [`06-notes/addon-dev/security-and-trust.md`](06-notes/addon-dev/security-and-trust.md)
 - [`06-notes/addon-dev/performance-and-resources.md`](06-notes/addon-dev/performance-and-resources.md)
@@ -114,6 +117,22 @@ These aren't stored in this repo. They belong to their authors and change with e
 | [**WoWUIDev/Ace3**](https://github.com/WoWUIDev/Ace3) | The most widely used addon framework (addon objects, events, profiles, config UI), includes LibStub | `05-libraries/Ace3/` | BSD-style |
 
 Also worth bookmarking: [Warcraft Wiki: World of Warcraft API](https://warcraft.wiki.gg/wiki/World_of_Warcraft_API) and the in-game `/api` command.
+
+## Learning Lua
+
+Addons are **Lua 5.1** inside a WoW sandbox (no general file/OS I/O). Full list of books and links:
+
+**[`06-notes/addon-dev/lua-learning-resources.md`](06-notes/addon-dev/lua-learning-resources.md)**
+
+Highlights:
+
+| Resource | Why |
+|----------|-----|
+| [Programming in Lua](https://www.lua.org/pil/) (PiL) — [1st ed. free online](https://www.lua.org/pil/contents.html) | The standard language book |
+| [Lua 5.1 Reference Manual](https://www.lua.org/manual/5.1/) | Authoritative syntax and standard library |
+| [Learn X in Y minutes: Lua](https://learnxinyminutes.com/docs/lua/) | Quick syntax tour |
+| [lua-users wiki](http://lua-users.org/wiki/) | Community patterns |
+| [`01-guides/wiki/10-lua-functions.md`](01-guides/wiki/10-lua-functions.md) | Which Lua builtins exist **in WoW** |
 
 ## Which source to trust
 
@@ -161,8 +180,10 @@ First-Timers/
 - **Set your event handler before registering events**, and read saved settings in `ADDON_LOADED`, not at file load.
 - **Don't modify protected frames in combat.** Check `InCombatLockdown()` first.
 - **Start small.** One file, one event, one slash command. HelloAzeroth is all three.
+- **Learn Lua 5.1 when you need it.** Books and manuals: [Learning Lua](#learning-lua) / [`lua-learning-resources.md`](06-notes/addon-dev/lua-learning-resources.md). Prefer 5.1 docs over newer Lua editions.
 - **If an AI wrote the code**, point it at [`AGENTS.md`](AGENTS.md), then verify every API against Forever/Midnight docs and run the [security](06-notes/addon-dev/security-and-trust.md) and [performance](06-notes/addon-dev/performance-and-resources.md) checklists before you trust it in-game.
 - **Install [luacheck](https://luacheck.readthedocs.io/) separately** before the publish gate — it is not included in First Timers or WoW. See [`luacheck-and-code-quality.md`](06-notes/addon-dev/luacheck-and-code-quality.md) (Install section).
+- **Give AI agents memory.** Prefer Hindsight; optional Obsidian for short human notes. Setup: [`agent-memory-setup.md`](06-notes/addon-dev/agent-memory-setup.md).
 
 ## Credits and licenses
 
