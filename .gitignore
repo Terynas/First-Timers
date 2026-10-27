@@ -1,0 +1,11 @@
+# Downloaded by sync.sh; not redistributed in this repo (each has its own repo and license).
+/02-api-docs/
+/03-blizzard-source/
+/04-interface-resources/
+/05-libraries/
+
+# Third-party site content (all rights reserved by its authors); sync.sh fetches it locally.
+/01-guides/forever/
+
+.DS_Store
+*.swp

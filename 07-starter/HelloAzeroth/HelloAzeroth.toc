@@ -1,0 +1,10 @@
+## Interface: 16001, 120105, 120107
+## Title: HelloAzeroth
+## Notes: First-timer starter addon: events, a slash command and saved settings (Forever + Midnight).
+## Author: You
+## Version: 0.1.0
+## SavedVariables: HelloAzerothDB
+## AllowLoadGameType: forever, standard
+## ExcludeLoadGameType: classic
+
+HelloAzeroth.lua
