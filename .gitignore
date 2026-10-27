@@ -9,3 +9,6 @@
 
 .DS_Store
 *.swp
+
+# Local maintainer Cursor rule (do not publish)
+.cursor/rules/git-author-policy.mdc
