@@ -4,11 +4,13 @@ Most new addons are drafted with AI. That is fine — **if** the human (and the 
 
 This note is the playbook. Pair it with:
 
+- [`luacheck-and-code-quality.md`](luacheck-and-code-quality.md) — **mandatory** static check before finish / publish / r/wowaddons
 - [`security-and-trust.md`](security-and-trust.md) — taint, secrets, chat, SavedVariables, no `loadstring` on network data
 - [`performance-and-resources.md`](performance-and-resources.md) — events vs polling, pools, timers
 - [`../forever-rules.md`](../forever-rules.md) + [`../forever-quirks.md`](../forever-quirks.md) — Forever client
 - [`midnight-12.md`](midnight-12.md) — secret values, CLEU removal
 - Root [`AGENTS.md`](../../AGENTS.md) — works with Claude, Copilot, Cursor, Codex, Gemini, Windsurf, etc. (see README *Using with AI coding tools*)
+- Cursor skill: [`.cursor/skills/wow-luacheck/SKILL.md`](../../.cursor/skills/wow-luacheck/SKILL.md)
 - Tool pointers: `CLAUDE.md`, `.github/copilot-instructions.md`, `GEMINI.md`, `.windsurfrules`, `.cursor/rules/`
 
 ## What AI gets wrong most often
@@ -45,9 +47,10 @@ Forever is Mainline-family (Camelot), not Classic Era. See [`forever-rules.md`](
 - Prefer events + `C_Timer` over frameworks until complexity demands Ace3.
 - Do not paste large Blizzard FrameXML into the addon; hook or reimplement the thin slice you need.
 
-### Security and performance are merge gates
+### Luacheck, security, and performance are merge gates
 
-Run the checklists at the bottoms of [`security-and-trust.md`](security-and-trust.md) and [`performance-and-resources.md`](performance-and-resources.md) before calling the work done.
+1. Run **luacheck** on the addon path (skill [`wow-luacheck`](../../.cursor/skills/wow-luacheck/SKILL.md); note [`luacheck-and-code-quality.md`](luacheck-and-code-quality.md)). Required after any Lua change and before publish/share.
+2. Run the checklists at the bottoms of [`security-and-trust.md`](security-and-trust.md) and [`performance-and-resources.md`](performance-and-resources.md) before calling the work done.
 
 ### Prove the API exists
 
@@ -61,10 +64,10 @@ Source: WowForeverAPI / Blizzard_APIDocumentationGenerated
 
 ### Test loop
 
-1. `/console scriptErrors 1` or BugSack  
-2. Lua-only edits → `/reload`  
-3. TOC edits → **full client restart**  
-4. `luacheck` when available  
+1. **`luacheck`** on the addon (mandatory — MCP `wow_luacheck` or CLI; see [`luacheck-and-code-quality.md`](luacheck-and-code-quality.md))  
+2. `/console scriptErrors 1` or BugSack  
+3. Lua-only edits → `/reload`  
+4. TOC edits → **full client restart**  
 5. Say clearly what was **not** tested in-game  
 
 ## Prompt patterns that produce better addon code
@@ -121,9 +124,10 @@ Optional for agents (this repo already has the first three):
 
 - [ ] TOC Interface / game-type directives match the target client
 - [ ] Every new API call verified against client docs
+- [ ] **luacheck clean** (or documented exceptions) — not optional
 - [ ] Security checklist passed
 - [ ] Performance checklist passed
 - [ ] SavedVariables init on `ADDON_LOADED` (name-checked)
-- [ ] luacheck clean (or documented exceptions)
 - [ ] Changelog / version bumped if you ship versions
 - [ ] Test plan written; in-game gaps stated honestly
+- [ ] If publishing or posting (including r/wowaddons): luacheck re-run on the ship tree

@@ -2,6 +2,14 @@
 
 Once the addon works locally, getting it to other players. Three platforms (CurseForge, WoWInterface, Wago), three ways to upload (manual zip, BigWigs Packager, GitHub Actions).
 
+## Before you package or post (required)
+
+1. **luacheck clean** on the addon folder — see [`luacheck-and-code-quality.md`](luacheck-and-code-quality.md) and [`.cursor/skills/wow-luacheck/SKILL.md`](../../.cursor/skills/wow-luacheck/SKILL.md) (MCP `wow_luacheck` or CLI).
+2. Security + performance checklists in [`security-and-trust.md`](security-and-trust.md) / [`performance-and-resources.md`](performance-and-resources.md).
+3. Smoke-test in-game (`/reload` or full restart after TOC changes).
+
+Skip packaging/upload/r/wowaddons posts until step 1 is green. Community audits (e.g. r/wowaddons) reject unnecessary globals and untested AI dumps; luacheck is the automated bar before you share.
+
 ## Distribution platforms
 
 | Platform | URL | Notes |

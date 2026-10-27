@@ -61,7 +61,7 @@ Run `bash sync.sh` again whenever you want the latest docs (`bash sync.sh docs` 
 3. **What's different on modern clients.** Read the [Midnight 12.0.0 API changes](01-guides/wiki/midnight-12.0.0-api-changes.md) and [`06-notes/addon-dev/midnight-12.md`](06-notes/addon-dev/midnight-12.md). Forever inherits most of these changes.
 4. **Forever specifics.** Read [`06-notes/forever-rules.md`](06-notes/forever-rules.md), [`06-notes/forever-quirks.md`](06-notes/forever-quirks.md) and the [Forever 1.60.1 API changes](01-guides/wiki/forever-1.60.1-api-changes.md), then the [Forever developer series](#external-sources) (downloaded into `01-guides/forever/` by `sync.sh`).
 5. **Going further.** Topic notes in [`06-notes/addon-dev/`](06-notes/addon-dev/) cover secure templates and combat lockdown, debugging, Ace3, and packaging for CurseForge. Bigger examples are in [`07-starter/more-examples/`](07-starter/more-examples/).
-6. **Building with AI.** Start at [`AGENTS.md`](AGENTS.md) (works with Claude, Copilot, Cursor, and other agents), then read [`06-notes/addon-dev/ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md) and the [security](06-notes/addon-dev/security-and-trust.md) / [performance](06-notes/addon-dev/performance-and-resources.md) checklists. See [Using with AI coding tools](#using-with-ai-coding-tools).
+6. **Building with AI.** Start at [`AGENTS.md`](AGENTS.md) (works with Claude, Copilot, Cursor, and other agents), then read [`06-notes/addon-dev/ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md), the mandatory [luacheck](06-notes/addon-dev/luacheck-and-code-quality.md) gate, and the [security](06-notes/addon-dev/security-and-trust.md) / [performance](06-notes/addon-dev/performance-and-resources.md) checklists. See [Using with AI coding tools](#using-with-ai-coding-tools).
 
 ## What's inside
 
@@ -91,8 +91,11 @@ Run `bash sync.sh` again whenever you want the latest docs (`bash sync.sh docs` 
 Human-readable playbooks (same content the agents should follow):
 
 - [`06-notes/addon-dev/ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md)
+- [`06-notes/addon-dev/luacheck-and-code-quality.md`](06-notes/addon-dev/luacheck-and-code-quality.md) — run before finish / publish / r/wowaddons (**install luacheck separately**; not bundled here)
 - [`06-notes/addon-dev/security-and-trust.md`](06-notes/addon-dev/security-and-trust.md)
 - [`06-notes/addon-dev/performance-and-resources.md`](06-notes/addon-dev/performance-and-resources.md)
+
+Cursor skill (auto-picked for lint/publish work): [`.cursor/skills/wow-luacheck/`](.cursor/skills/wow-luacheck/).
 
 Optional broader skill (retail-focused, separate repo): [wow-addon-dev](https://github.com/TheMizeGuy/wow-addon-dev) for Claude/Codex/Gemini skill folders — still use this repo’s Forever notes when targeting Forever.
 
@@ -159,6 +162,7 @@ First-Timers/
 - **Don't modify protected frames in combat.** Check `InCombatLockdown()` first.
 - **Start small.** One file, one event, one slash command. HelloAzeroth is all three.
 - **If an AI wrote the code**, point it at [`AGENTS.md`](AGENTS.md), then verify every API against Forever/Midnight docs and run the [security](06-notes/addon-dev/security-and-trust.md) and [performance](06-notes/addon-dev/performance-and-resources.md) checklists before you trust it in-game.
+- **Install [luacheck](https://luacheck.readthedocs.io/) separately** before the publish gate — it is not included in First Timers or WoW. See [`luacheck-and-code-quality.md`](06-notes/addon-dev/luacheck-and-code-quality.md) (Install section).
 
 ## Credits and licenses
 

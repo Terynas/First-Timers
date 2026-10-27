@@ -19,6 +19,7 @@ Canonical multi-tool contract: repository root `AGENTS.md` (also used by Claude,
 - Smallest correct change; avoid Ace3 unless config/profile complexity needs it
 - Init SavedVariables on `ADDON_LOADED` with addon-name check
 - Set `OnEvent` before `RegisterEvent`
+- **Mandatory luacheck** before finishing Lua/TOC work and before package/publish/post (including r/wowaddons): follow `.cursor/skills/wow-luacheck/SKILL.md` and `06-notes/addon-dev/luacheck-and-code-quality.md` (MCP `wow_luacheck` or CLI + `.luacheckrc`)
 - Security + performance checklists in `06-notes/addon-dev/security-and-trust.md` and `performance-and-resources.md` are merge gates
 - State what was not tested in-game; never claim "should work" without evidence
 
