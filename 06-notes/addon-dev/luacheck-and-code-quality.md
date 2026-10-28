@@ -52,6 +52,20 @@ Ship a `.luacheckrc` in your own addon repo (copy this one and trim `read_global
 
 Never disable all global warnings to “make CI green” for AI-generated code.
 
+## GUI / complementary scanners (optional)
+
+**luacheck remains the mandatory gate** in this library. The tools below are useful extras (local dashboard, ZIP upload, IDE, or CI). None of them replace a clean luacheck run before finish / publish.
+
+| Tool | Kind | What it does |
+|------|------|----------------|
+| [**Mechanic Desktop**](https://github.com/Falkicon/Mechanic/blob/main/desktop/README.md) | Local companion + browser **dashboard** (`mech dashboard`) | Lint (luacheck), TOC validate, deprecation scan, dead-code / Lua analysis, SavedVariables watcher. Windows full; macOS partial. Closest thing to a “GUI scanner” for a local addon folder. |
+| [**Globe**](https://www.townlong-yak.com/globe/about) | **Web** upload UI | Upload an addon ZIP → globals, events, widgets, warnings. No desktop install. |
+| [**wowlua**](https://wowlua.dev/) | IDE + emulated client UI | Debug / click / test addons in a GUI. Strong for *running* UI, not a one-click folder scan. |
+| [**WoW Lua Language Server**](https://marketplace.visualstudio.com/items?itemName=TradeSkillMaster.wowlua-ls) ([wowlua-ls](https://github.com/TradeSkillMaster/wowlua-ls)) | VS Code / Cursor diagnostics + `wowlua_ls check` CLI | Live IDE squiggles; complements Ketho’s WoW API extension. |
+| [**AddonSentry**](https://addonsentry.io/) | Hosted CI / PR scans | Patch-break and API-risk checks via GitHub/API — not a local desktop GUI. |
+
+**Suggested habit:** keep **luacheck** (CLI or MCP `wow_luacheck`) for every change; use **Mechanic** or **Globe** when you want a visual overview; use **wowlua-ls** in the editor day-to-day.
+
 ## Definition of done (with other gates)
 
 1. **luacheck clean** (this note)

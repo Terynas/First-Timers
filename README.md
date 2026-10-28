@@ -94,7 +94,7 @@ Human-readable playbooks (same content the agents should follow):
 
 - [`06-notes/addon-dev/ai-assisted-best-practices.md`](06-notes/addon-dev/ai-assisted-best-practices.md)
 - [`06-notes/addon-dev/agent-memory-setup.md`](06-notes/addon-dev/agent-memory-setup.md) — **Hindsight (primary) + optional Obsidian**; token discipline
-- [`06-notes/addon-dev/luacheck-and-code-quality.md`](06-notes/addon-dev/luacheck-and-code-quality.md) — run before finish / publish / r/wowaddons (**install luacheck separately**; not bundled here)
+- [`06-notes/addon-dev/luacheck-and-code-quality.md`](06-notes/addon-dev/luacheck-and-code-quality.md) — run before finish / publish / r/wowaddons (**install luacheck separately**; not bundled here); also lists optional GUI scanners (Mechanic, Globe, wowlua, AddonSentry)
 - [`06-notes/addon-dev/security-and-trust.md`](06-notes/addon-dev/security-and-trust.md)
 - [`06-notes/addon-dev/performance-and-resources.md`](06-notes/addon-dev/performance-and-resources.md)
 
