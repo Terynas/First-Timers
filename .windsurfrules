@@ -7,6 +7,7 @@ Also apply:
 - 06-notes/addon-dev/agent-memory-setup.md (Hindsight primary; Obsidian optional)
 - 06-notes/addon-dev/luacheck-and-code-quality.md (mandatory luacheck before finish/publish)
 - .cursor/skills/wow-luacheck/SKILL.md
+- .cursor/skills/wow-addon-ui/SKILL.md (standard UI look)
 - .cursor/rules/wow-addon-ai-memory.mdc
 - 06-notes/addon-dev/security-and-trust.md
 - 06-notes/addon-dev/performance-and-resources.md

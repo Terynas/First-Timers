@@ -15,6 +15,7 @@ Tool-agnostic contract for coding agents working in this repository (Claude Code
 | [`06-notes/forever-rules.md`](06-notes/forever-rules.md) | Forever client hard rules |
 | [`06-notes/forever-quirks.md`](06-notes/forever-quirks.md) | Runtime Forever quirks |
 | [`.cursor/skills/wow-luacheck/SKILL.md`](.cursor/skills/wow-luacheck/SKILL.md) | Agent skill: how to run luacheck (MCP / CLI) |
+| [`.cursor/skills/wow-addon-ui/SKILL.md`](.cursor/skills/wow-addon-ui/SKILL.md) | Agent skill: standard addon UI (stone-and-gold window, rows, minimap button, options) built on [`StandardUI/UIKit.lua`](07-starter/more-examples/StandardUI/UIKit.lua) |
 
 How each tool loads these: see [README — Using with AI coding tools](README.md#using-with-ai-coding-tools).
 
@@ -38,6 +39,7 @@ How each tool loads these: see [README — Using with AI coding tools](README.md
 - Create frames once or via a pool — never `CreateFrame` inside frequent rebuilds.
 - Init SavedVariables on `ADDON_LOADED` with an addon-name check; set `OnEvent` before `RegisterEvent`.
 - Prefix globals and frame names (`MyAddon_`).
+- Build windows and panels with the standard UI kit ([`wow-addon-ui`](.cursor/skills/wow-addon-ui/SKILL.md)); do not invent new chrome or colours.
 - Smallest correct change; avoid Ace3 unless config/profile complexity needs it.
 - State what was **not** tested in-game.
 

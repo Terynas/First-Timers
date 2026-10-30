@@ -12,6 +12,7 @@ This note is the playbook. Pair it with:
 - [`midnight-12.md`](midnight-12.md) — secret values, CLEU removal
 - Root [`AGENTS.md`](../../AGENTS.md) — works with Claude, Copilot, Cursor, Codex, Gemini, Windsurf, etc. (see README *Using with AI coding tools*)
 - Cursor skill: [`.cursor/skills/wow-luacheck/SKILL.md`](../../.cursor/skills/wow-luacheck/SKILL.md)
+- Cursor skill: [`.cursor/skills/wow-addon-ui/SKILL.md`](../../.cursor/skills/wow-addon-ui/SKILL.md) (standard UI look for every window and panel)
 - Tool pointers: `CLAUDE.md`, `.github/copilot-instructions.md`, `GEMINI.md`, `.windsurfrules`, `.cursor/rules/`
 
 ## What AI gets wrong most often

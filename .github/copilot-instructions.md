@@ -16,6 +16,7 @@ Hard constraints for completions:
 
 - Forever Interface `16001` is Mainline-family with secrets — not Classic Era
 - After Lua edits: luacheck clean before claiming done or packaging
+- UI: build windows and panels with `07-starter/more-examples/StandardUI/UIKit.lua` (rules in `.cursor/skills/wow-addon-ui/SKILL.md`)
 - No `loadstring` on chat or addon-message payloads
 - Use `hooksecurefunc` / `HookScript`, not Blizzard global replacement
 - Prefer events and `C_Timer` over unthrottled `OnUpdate`

@@ -74,6 +74,7 @@ Run `bash sync.sh` again whenever you want the latest docs (`bash sync.sh docs` 
 | [`AGENTS.md`](AGENTS.md) | Tool-agnostic instructions for any coding agent (Claude, Copilot, Cursor, Codex, Gemini, …). |
 | [`07-starter/HelloAzeroth/`](07-starter/HelloAzeroth/) | A minimal addon for both clients: event handling, a slash command, saved settings and Forever detection. |
 | [`07-starter/more-examples/`](07-starter/more-examples/) | Ace3 addon, options panel, addon-to-addon messages, boss encounter handling, multi-version TOCs. Their TOCs say `120005`; update `## Interface:` before loading them. |
+| [`07-starter/more-examples/StandardUI/`](07-starter/more-examples/StandardUI/) | The standard addon UI (same look as SnapPost Forever and ProfessionMaster): a reusable `UIKit.lua` plus an example window with sidebar, list rows, minimap button and options page. Loads on Forever, Classic Era and Midnight; type `/sui`. |
 | [`sync.sh`](sync.sh) | Downloads and updates everything in [External sources](#external-sources). |
 
 ## Using with AI coding tools
@@ -98,7 +99,10 @@ Human-readable playbooks (same content the agents should follow):
 - [`06-notes/addon-dev/security-and-trust.md`](06-notes/addon-dev/security-and-trust.md)
 - [`06-notes/addon-dev/performance-and-resources.md`](06-notes/addon-dev/performance-and-resources.md)
 
-Cursor skill (auto-picked for lint/publish work): [`.cursor/skills/wow-luacheck/`](.cursor/skills/wow-luacheck/).
+Cursor skills (auto-picked by task):
+
+- [`.cursor/skills/wow-luacheck/`](.cursor/skills/wow-luacheck/) for lint and publish work.
+- [`.cursor/skills/wow-addon-ui/`](.cursor/skills/wow-addon-ui/) for any window, panel, list, minimap button or options page, so every addon shares the standard look.
 
 Optional broader skill (retail-focused, separate repo): [wow-addon-dev](https://github.com/TheMizeGuy/wow-addon-dev) for Claude/Codex/Gemini skill folders — still use this repo’s Forever notes when targeting Forever.
 

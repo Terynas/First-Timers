@@ -1,0 +1,11 @@
+## Interface: 11509, 16001, 120105, 120107
+## Title: StandardUI
+## Notes: First Timers standard UI example: stone-and-gold window, list rows, minimap button and options page.
+## Author: You
+## Version: 0.1.0
+## SavedVariables: StandardUIDB
+## IconTexture: Interface\Icons\INV_Misc_Book_09
+## AllowLoadGameType: forever, standard, vanilla
+
+UIKit.lua
+StandardUI.lua

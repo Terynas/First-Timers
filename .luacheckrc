@@ -29,12 +29,17 @@ read_globals = {
     "issecretvalue", "canaccessvalue", "scrubsecretvalues",
     "NORMAL_FONT_COLOR", "HIGHLIGHT_FONT_COLOR",
     "Settings", "SettingsPanel",
+    -- Standard UI kit (07-starter/more-examples/StandardUI)
+    "tinsert", "UISpecialFrames", "Minimap", "GetCursorPosition",
+    "InterfaceOptions_AddCategory", "InterfaceOptionsFrame_OpenToCategory",
 }
 
 -- SavedVariables and intentional addon globals for starters / examples:
 globals = {
     "HelloAzerothDB",
     "SLASH_HELLOAZEROTH1",
+    "StandardUIDB",
+    "SLASH_STANDARDUI1",
     SlashCmdList = {
         read_only = false,
         other_fields = true,
