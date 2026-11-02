@@ -63,8 +63,9 @@ Never disable all global warnings to “make CI green” for AI-generated code.
 | [**wowlua**](https://wowlua.dev/) | IDE + emulated client UI | Debug / click / test addons in a GUI. Strong for *running* UI, not a one-click folder scan. |
 | [**WoW Lua Language Server**](https://marketplace.visualstudio.com/items?itemName=TradeSkillMaster.wowlua-ls) ([wowlua-ls](https://github.com/TradeSkillMaster/wowlua-ls)) | VS Code / Cursor diagnostics + `wowlua_ls check` CLI | Live IDE squiggles; complements Ketho’s WoW API extension. |
 | [**AddonSentry**](https://addonsentry.io/) | Hosted CI / PR scans | Patch-break and API-risk checks via GitHub/API — not a local desktop GUI. |
+| [**addon-auditor**](https://github.com/Terynas/addon-auditor) | CLI + **MCP server** for AI agents (+ in-game AuditorProbe) | Runs luacheck, then checks the TOC, per-client API existence (Forever / Era / Midnight), performance (OnUpdate, hot-path allocation, events), taint, SavedVariables, usability (Esc-to-close, clamping, slash help) and packaging. Diff mode for mid-coding, SARIF for CI, runtime memory/CPU from the probe. |
 
-**Suggested habit:** keep **luacheck** (CLI or MCP `wow_luacheck`) for every change; use **Mechanic** or **Globe** when you want a visual overview; use **wowlua-ls** in the editor day-to-day.
+**Suggested habit:** keep **luacheck** (CLI or MCP `wow_luacheck`) for every change; use **addon-auditor** (`audit_changes` / `addon-auditor diff`) when an agent writes the code; use **Mechanic** or **Globe** when you want a visual overview; use **wowlua-ls** in the editor day-to-day.
 
 ## Definition of done (with other gates)
 
